@@ -1,0 +1,109 @@
+
+
+CREATE TABLE item (
+    itm_code CHAR(4) PRIMARY KEY,
+    itm_description VARCHAR(25),
+    itm_unit_price DECIMAL(9,2),
+    itm_imported TINYINT(1),
+    itm_supplier VARCHAR(20)
+);
+
+
+
+
+
+insert into item
+     (itm_code,itm_description,itm_unit_price,itm_imported,itm_supplier)
+     values
+     ('IT10','Television',24000.00,1,'Sony'),
+     ('IT11','Computer',60000.00,1,'Dell'),
+     ('IT12','Laser Printer',19000.00,1,'HP'),
+     ('IT13','VCD Player',7599.00,1,Null),
+     ('IT15','Polisher',12000.00,1,'National'),
+     ('IT16','Scanner',16000.00,Null,'HP'),
+     ('IT17','Refrigerator',65000.00,1,'LG'),
+    ('IT18','Table Lamp',2999.00,0,'Abans'),
+  ('IT19','Wall Clock',1200.00,1,'Null'),
+  ('IT20','Blender',4800.00,1,'National'),
+  ('IT14','Oven',7300.00,0,'Abans');
+
+
+
+
+
+insert into location
+(loc_code,loc_name,loc_contact,loc_address)
+values
+('L01','Colombo',0112946058,'Colombo'),
+('L02','Kaluthara',NULL,'Main street'),
+('L03','Galle',0912546893,NULL),
+('L04','Matara',0415670045,'Dharmapala Mawatha');
+
+
+
+create table location(
+     loc_code char(4),
+     loc_name varchar(25),
+     loc_contact char(11),
+     loc_address varchar(300),
+     primary key (loc_code));
+
+
+
+create table store(
+st_item_code char(4),
+st_location_code char(3),
+st_qty int,
+st_date date
+);
+
+
+insert into store
+(st_item_code,st_location_code,st_qty,st_date)
+values
+('IT10','L01',30,'2016-04-08'),
+('IT10','L03',3,'2016-04-02'),
+('IT10','L04',10,'2016-04-28'),
+('IT11','L01',25,NULL),
+('IT11','L02',12,'2016-05-07'),
+('IT13','L04',60,'2016-05-09'),
+('IT16','L02',5,NULL);
+
+
+
+create table sales(
+sa_trans_no int,
+sa_item_code varchar(6),
+sa_location_code varchar(6),
+sa_sales_qty int,
+sa_date_of_sale date,
+primary key (sa_trans_no));
+
+
+insert into sales
+(sa_trans_no,sa_item_code,sa_location_code,sa_sales_qty,sa_date_of_sale)
+values
+(1,'IT10','L01',3,'2016-5-2'),
+(2,'IT10','L03',1,'2016-5-12'),
+(3,'IT13','L04',15,'2016-4-7'),
+(4,'IT11','L01',12,'2016-5-15'),
+(5,'IT11','L02',5,'2016-7-12');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
